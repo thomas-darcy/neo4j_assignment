@@ -66,7 +66,7 @@ domain of application
 ranked by importance
 ### Data model
 The json file as exported from arrows.app is located [Data Model JSON](/NorthWind%20Retail%20DataSet.json)[^4]
-![Data Model](/assets/datamodel_01.png)
+![Data Model](/assets/datamodel_02.png)
 ### Instructions
 1. Copy the files from the data directory to the Virtual Machine (git?)
 2. Copy to the neo4j import directory /var/lib/neo4j/import
