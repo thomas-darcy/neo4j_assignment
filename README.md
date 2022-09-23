@@ -56,39 +56,58 @@ neo4j status
 
 ## Modelling Dataset
 ### Background
-Retail North Wind Data
-Describe application in detail, 
-domain of application
-#### Use Cases
-- Customers acting as suppliers without a valid supplier account (shipping outside of their region)
+This application is based on the **Retail North Wind Data**
+
+### Use Cases
+##### Potential account misuse
+- Customers shipping outside of their registered address
+- Customers shipping to multiple cities/countries
+##### Fraudulent activity
 - Anomalies in shipping with recipients outside of normal
+##### Workforce planning
 - Re-targetting workforce to cities with more Customers/Suppliers
 
-ranked by importance
 ### Data model
 The json file as exported from arrows.app is located [Data Model JSON](/NorthWind%20Retail%20DataSet.json)[^4]
 ![Data Model](/assets/datamodel_02.png)
+
+Historical data model's can be viewed in the assets directory, prefixed with ```data_model```
 ### Instructions
-1. Copy the files from the data directory to the Virtual Machine and into the neo4j import directory /var/lib/neo4j/import [^5]
-2. Install APOC by downloading version 4.4.0.1 from the releases page [^6] and moving to the neo4j plugins directiry /var/lib/neo4j/plugins [^5]
-3. Start the neo4j service, once the Browser is available login using the password created in the earlier part
-4. For each of the files test they can be read by using the following command, each table should return a count e.g.
+1. Copy the files from the data directory to the Virtual Machine and into the neo4j import directory ```/var/lib/neo4j/import``` [^5]
+2. Install APOC by downloading version 4.4.0.1 from the releases page [^6] and moving to the neo4j plugins directory ```/var/lib/neo4j/plugins``` [^5]
+3. Start the neo4j service, once available open the Browser and login 
+4. Test to ensure the import CSVs are readable. Can be read by using the following command, each table should return a count e.g.
 ```shell
 LOAD CSV FROM "file:///northwind-categories.csv" AS line
 RETURN count(*);
 ```
-Full code [Full code](/cypher/cypher_checkfiles.txt)
+[Full script](/cypher/cypher_checkfiles.txt)
 
 5. Create the schema using the generated Cypher [Cypher Create Model](/cypher/cypher_createmodel.txt)
 
 6. Run the Cypher queries to create the nodes and relationships off the CSVs [Cypher Create Model](/cypher/importcsv.txt)
 
 
-### Use Cases - Cypher Queries with Results
+### Cypher Queries
+##### Use Case - Potential account misuse
+- Customers shipping outside of their registered address
+![Cypher result](/assets/cypher_result_01.png)
+
+```
+MATCH (c:Customer)-[p:PURCHASED]-(o:Order), (c)-[r:REGISTERED_TO]->(ca:Address), (o)-[sl:SHIPPED_LOCATION]->(oa:Address)
+WHERE oa.addressHash <> ca.addressHash
+RETURN c, p, o
+```
+- Customers shipping to multiple cities/countries
+##### Use Case - Fraudulent activity
+- Anomalies in shipping with recipients outside of normal
+##### Workforce planning
+- Re-targetting workforce to cities with more Customers/Suppliers
+##### Others of interest
 
 ## Graph Enabled Ingestion (Python)
 
-## ~~Cypher Queries~~
+
 [^1]: https://neo4j.com/docs/operations-manual/current/installation/linux/debian/#multiple-java-versions
 [^2]: If the error ```E: dpkg was interrupted, you must manually run 'sudo dpkg --configure -a' to correct the problem.``` appears, run the command as instructed, and re-run the install command
 [^3]: To review user permissions rather than using sudo...
