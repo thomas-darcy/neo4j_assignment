@@ -1,0 +1,21 @@
+-- Should return 10
+LOAD CSV FROM "file:///northwind-employees.csv" AS line
+RETURN count(*);
+-- Should return 9
+LOAD CSV FROM "file:///northwind-categories.csv" AS line
+RETURN count(*);
+-- Should return 78
+LOAD CSV FROM "file:///northwind-products.csv" AS line
+RETURN count(*);
+-- Should return 831 
+LOAD CSV FROM "file:///northwind-orders.csv" AS line
+RETURN count(*);
+--  Should return 30
+LOAD CSV FROM "file:///northwind-suppliers.csv" AS line
+RETURN count(*);
+-- Should return 92
+LOAD CSV FROM "file:///northwind-customers.csv" AS line
+RETURN count(*);
+-- Should return 2156 
+LOAD CSV FROM "file:///northwond-order-details.csv" AS line
+RETURN count(*);

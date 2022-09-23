@@ -40,7 +40,7 @@ neo4j version
 ```shell
 sudo neo4j start
 ```
-10. After a few minutes confirm that neo4j is running by using the command
+10. After a couple of minutes confirm that neo4j is running by using the command
 ```shell
 neo4j status
 ```
@@ -51,25 +51,40 @@ neo4j status
 13. You should now be connected via the neo4j Browser
 ![Connected](/assets/connected.png)
 
-[^1]: https://neo4j.com/docs/operations-manual/current/installation/linux/debian/#multiple-java-versions
-[^2]: If the error ```E: dpkg was interrupted, you must manually run 'sudo dpkg --configure -a' to correct the problem.``` appears, run the command as instructed, and re-run the install command
-[^3]: To review user permissions rather than using sudo...
 
 
-## Modelling Dataset - 
+
+## Modelling Dataset
 ### Background
 Retail North Wind Data
-
 Describe application in detail, 
-domain of application, 
-use cases for it, 
+domain of application
+#### Use Cases
+- Anomalies in shipping with recipients outside of normal
+- Re-targetting workforce to region with more Customers/Suppliers
+
 ranked by importance
-### Instance model 
 ### Data model
-The json file as exported from arrows.app is located [Data Model JSON](/NorthWind%20Retail%20DataSet.json)
+The json file as exported from arrows.app is located [Data Model JSON](/NorthWind%20Retail%20DataSet.json)[^4]
 ![Data Model](/assets/datamodel_01.png)
+### Instructions
+1. Copy the files from the data directory to the Virtual Machine (git?)
+2. Copy to the neo4j import directory /var/lib/neo4j/import
+3. Start the neo4j service, once the Browser is available login using the password created in the earlier part
+4. For each of the files test they can be read by using the following command, each table should return a count e.g.
+```shell
+LOAD CSV FROM "file:///northwind-categories.csv" AS line
+RETURN count(*);
+```
+Full code [Full code](/cypher_checkfiles.txt)
+5. Create the schema using the generated Cypher [Cypher Create Model](/cypher_createmodel.txt)
+6. Run the Cypher queries (to be created and checked in) to create the nodes and relationships off the CSVs
 ### Use Cases - Cypher Queries with Results
 
 ## Graph Enabled Ingestion (Python)
 
-## Cypher Queries
+## ~~Cypher Queries~~
+[^1]: https://neo4j.com/docs/operations-manual/current/installation/linux/debian/#multiple-java-versions
+[^2]: If the error ```E: dpkg was interrupted, you must manually run 'sudo dpkg --configure -a' to correct the problem.``` appears, run the command as instructed, and re-run the install command
+[^3]: To review user permissions rather than using sudo...
+[^4]: Maybe look at restructuring the directory
