@@ -1,0 +1,78 @@
+-- Process File northwind-categories
+LOAD CSV WITH HEADERS FROM "file:///northwind-categories.csv" AS row 
+MERGE (c:Category { categoryId: row.categoryID })
+SET c.categoryName =  row.categoryName, c.categoryDescription = row.description
+RETURN c;
+
+-- Process file northwind-products
+LOAD CSV WITH HEADERS FROM "file:///northwind-products.csv" AS row 
+MERGE (p:Product { productId: row.productID })
+MERGE (s:Supplier { supplierId: row.supplierID })
+WITH row, p, s
+MATCH (c:Category { categoryId: row.categoryID })
+MERGE (p)-[:CATEGORISED_AS]->(c)
+MERGE (p)-[:SUPPLIED_BY]->(s)
+SET p.productName =  row.productName, p.quantityPerUnit = row.quantityPerUnit, p.unitPrice = row.unitPrice;
+
+-- Process file northwind-employees
+LOAD CSV WITH HEADERS FROM "file:///northwind-employees.csv" AS row 
+MERGE (e:staffMember { employeeId: row.employeeID })
+MERGE (m:staffMember { employeeId: row.reportsTo })
+MERGE (e)-[:MANAGED_BY]->(m);
+
+-- Process file northwind-suppliers
+LOAD CSV WITH HEADERS FROM "file:///northwind-suppliers.csv" AS row 
+MERGE (s:Supplier { supplierId: row.supplierID })
+MERGE (c:Country { countryName: row.country})
+MERGE (ct:City { cityName: row.city})
+MERGE (pc:PostCodes { postcodeHash: apoc.util.sha512([row.postalCode])})
+MERGE (a:Address { addressHash: apoc.util.sha512([row.address])})
+MERGE (ct)-[:CITY_OF]->(c)
+MERGE (pc)-[:MAILING_IDENTIFIER]->(c)
+MERGE (a)-[:PHYSICAL_LOCATION]->(ct)
+MERGE (a)-[:POSTAL_LOCATION]->(pc)
+MERGE (s)-[:REGISTERED_TO]->(a)
+SET s.supplierName =  row.companyName, s.contactName = row.contactName, s.contactRole = row.contactTitle,
+ct.region = row.region, pc.postCode = row.postalCode, a.addressText = row.address;
+
+-- Process file northwind-customers
+LOAD CSV WITH HEADERS FROM "file:///northwind-customers.csv" AS row 
+MERGE (m:Customer { customerId: row.customerID })
+MERGE (c:Country { countryName: row.country})
+MERGE (ct:City { cityName: row.city})
+MERGE (pc:PostCodes { postcodeHash: apoc.util.sha512([row.postalCode])})
+MERGE (a:Address { addressHash: apoc.util.sha512([row.address])})
+MERGE (ct)-[:CITY_OF]->(c)
+MERGE (pc)-[:MAILING_IDENTIFIER]->(c)
+MERGE (a)-[:PHYSICAL_LOCATION]->(ct)
+MERGE (a)-[:POSTAL_LOCATION]->(pc)
+MERGE (m)-[:REGISTERED_TO]->(a)
+SET m.customerName =  row.companyName, m.contactName = row.contactName, m.contactRole = row.contactTitle,
+ct.region = row.region, pc.postCode = row.postalCode, a.addressText = row.address;
+
+-- Process file northwind-orders
+LOAD CSV WITH HEADERS FROM "file:///northwind-orders.csv" AS row 
+MERGE (o:Order { orderId: row.orderID })
+MERGE (e:StaffMember { employeeId: row.employeeID })
+MERGE (c:Customer { customerId: row.customerID })
+MERGE (r:Recipients { recipientHash: apoc.util.sha512([row.shipName])})
+MERGE (cn:Country { countryName: row.shipCountry})
+MERGE (ct:City { cityName: row.shipCity})
+MERGE (pc:PostCodes { postcodeHash: apoc.util.sha512([row.shipPostalCode])})
+MERGE (a:Address { addressHash: apoc.util.sha512([row.shipAddress])})
+MERGE (o)-[:PROCESSED_BY]->(e)
+MERGE (c)-[:PURCHASED]->(o)
+MERGE (o)-[sl:SHIPPED_LOCATION]->(a)
+MERGE (o)-[:SHIPPED_RECIPIENT]->(r)
+MERGE (ct)-[:CITY_OF]->(cn)
+MERGE (pc)-[:MAILING_IDENTIFIER]->(c)
+MERGE (a)-[:PHYSICAL_LOCATION]->(ct)
+MERGE (a)-[:POSTAL_LOCATION]->(pc)
+SET r.recipientName = row.shipName, sl.shippedDate = row.shippedDate, sl.freight = row.freight;
+
+-- Process file northwond-order-details
+LOAD CSV WITH HEADERS FROM "file:///northwond-order-details.csv" AS row 
+MERGE (o:Order { orderId: row.orderID })
+MERGE (p:Product { productId: row.productID })
+MERGE (o)-[c:CONTAINS]->(p)
+SET c.unitPrice = row.unitPrice, c.quantity = row.quantity, c.discount = row.discount;

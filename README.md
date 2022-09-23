@@ -60,25 +60,30 @@ Retail North Wind Data
 Describe application in detail, 
 domain of application
 #### Use Cases
+- Customers acting as suppliers without a valid supplier account (shipping outside of their region)
 - Anomalies in shipping with recipients outside of normal
-- Re-targetting workforce to region with more Customers/Suppliers
+- Re-targetting workforce to cities with more Customers/Suppliers
 
 ranked by importance
 ### Data model
 The json file as exported from arrows.app is located [Data Model JSON](/NorthWind%20Retail%20DataSet.json)[^4]
 ![Data Model](/assets/datamodel_02.png)
 ### Instructions
-1. Copy the files from the data directory to the Virtual Machine (git?)
-2. Copy to the neo4j import directory /var/lib/neo4j/import
+1. Copy the files from the data directory to the Virtual Machine and into the neo4j import directory /var/lib/neo4j/import [^5]
+2. Install APOC by downloading version 4.4.0.1 from the releases page [^6] and moving to the neo4j plugins directiry /var/lib/neo4j/plugins [^5]
 3. Start the neo4j service, once the Browser is available login using the password created in the earlier part
 4. For each of the files test they can be read by using the following command, each table should return a count e.g.
 ```shell
 LOAD CSV FROM "file:///northwind-categories.csv" AS line
 RETURN count(*);
 ```
-Full code [Full code](/cypher_checkfiles.txt)
-5. Create the schema using the generated Cypher [Cypher Create Model](/cypher_createmodel.txt)
-6. Run the Cypher queries (to be created and checked in) to create the nodes and relationships off the CSVs
+Full code [Full code](/cypher/cypher_checkfiles.txt)
+
+5. Create the schema using the generated Cypher [Cypher Create Model](/cypher/cypher_createmodel.txt)
+
+6. Run the Cypher queries to create the nodes and relationships off the CSVs [Cypher Create Model](/cypher/importcsv.txt)
+
+
 ### Use Cases - Cypher Queries with Results
 
 ## Graph Enabled Ingestion (Python)
@@ -88,3 +93,5 @@ Full code [Full code](/cypher_checkfiles.txt)
 [^2]: If the error ```E: dpkg was interrupted, you must manually run 'sudo dpkg --configure -a' to correct the problem.``` appears, run the command as instructed, and re-run the install command
 [^3]: To review user permissions rather than using sudo...
 [^4]: Maybe look at restructuring the directory
+[^5]: Also specified when starting the neo4j service
+[^6]: https://github.com/neo4j-contrib/neo4j-apoc-procedures/releases
