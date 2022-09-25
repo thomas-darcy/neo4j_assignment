@@ -5,3 +5,4 @@ This readme has been broken into three parts:
 - Part 2 [Retail Data Model](/content/parttwo.md)
 - Part 3 [Graph Enabled Ingestion - Python](/content/partthree.md)
 
+

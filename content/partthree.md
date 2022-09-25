@@ -150,3 +150,5 @@ Required dependencies:
     "recordsSynced": The number of records synced
 }
 ```
+
+[Readme.md](/readme.md)
