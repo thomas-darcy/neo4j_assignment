@@ -15,7 +15,7 @@ As a part of the modelling process the following use cases were designed
 
 ### Data model
 The json file as exported from arrows.app is located [Data Model JSON](/NorthWind%20Retail%20DataSet.json)[^4]
-![Data Model](/assets/datamodel_02.png)
+![Data Model](/assets/datamodel_03.png)
 
 Historical data model's can be viewed in the assets directory, prefixed with ```data_model```
 ### Instructions
@@ -98,8 +98,7 @@ MATCH (c:Customer)-[:REGISTERED_TO]->(ca:Address), (ca)-[:PHYSICAL_LOCATION]->(c
 WHERE cact.cityName = sact.cityName or oact.cityName = sact.cityName
 RETURN c.customerName, s.supplierName
 ```
-Should go back and review the import data to ensure it's clean
-
+Looks to be an issue with the way the data has been imported
 
 
 [README.md](/README.md)

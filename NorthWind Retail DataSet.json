@@ -1,13 +1,13 @@
 {
   "style": {
-    "font-family": "Nunito Sans",
-    "background-color": "#F2F2F2",
+    "font-family": "sans-serif",
+    "background-color": "#ffffff",
     "background-image": "",
     "background-size": "100%",
-    "node-color": "#4C8EDA",
-    "border-width": 0,
+    "node-color": "#ffffff",
+    "border-width": 4,
     "border-color": "#000000",
-    "radius": 75,
+    "radius": 50,
     "node-padding": 5,
     "node-margin": 2,
     "outside-position": "auto",
@@ -17,47 +17,58 @@
     "icon-size": 64,
     "caption-position": "inside",
     "caption-max-width": 200,
-    "caption-color": "#ffffff",
-    "caption-font-size": 20,
+    "caption-color": "#000000",
+    "caption-font-size": 50,
     "caption-font-weight": "normal",
     "label-position": "inside",
-    "label-display": "bare",
-    "label-color": "#ffffff",
-    "label-background-color": "#848484",
-    "label-border-color": "#848484",
-    "label-border-width": 3,
-    "label-font-size": 20,
+    "label-display": "pill",
+    "label-color": "#000000",
+    "label-background-color": "#ffffff",
+    "label-border-color": "#000000",
+    "label-border-width": 4,
+    "label-font-size": 40,
     "label-padding": 5,
     "label-margin": 4,
     "directionality": "directed",
-    "detail-position": "above",
+    "detail-position": "inline",
     "detail-orientation": "parallel",
-    "arrow-width": 3,
-    "arrow-color": "#848484",
+    "arrow-width": 5,
+    "arrow-color": "#000000",
     "margin-start": 5,
     "margin-end": 5,
     "margin-peer": 20,
     "attachment-start": "normal",
     "attachment-end": "normal",
     "relationship-icon-image": "",
-    "type-color": "#848484",
-    "type-background-color": "#F2F2F2",
-    "type-border-color": "#848484",
+    "type-color": "#000000",
+    "type-background-color": "#ffffff",
+    "type-border-color": "#000000",
     "type-border-width": 0,
-    "type-font-size": 21,
+    "type-font-size": 16,
     "type-padding": 5,
     "property-position": "outside",
     "property-alignment": "colon",
-    "property-color": "#848484",
-    "property-font-size": 20,
+    "property-color": "#000000",
+    "property-font-size": 16,
     "property-font-weight": "normal"
   },
   "nodes": [
     {
-      "id": "n3",
+      "id": "n0",
       "position": {
-        "x": 321.5979950443784,
-        "y": 195.92004613235656
+        "x": 0,
+        "y": 0
+      },
+      "caption": "",
+      "labels": [],
+      "properties": {},
+      "style": {}
+    },
+    {
+      "id": "n1",
+      "position": {
+        "x": 2084.9089400781168,
+        "y": 835.1913391508141
       },
       "caption": "Country",
       "labels": [
@@ -69,10 +80,10 @@
       }
     },
     {
-      "id": "n4",
+      "id": "n2",
       "position": {
-        "x": -139.65251861462508,
-        "y": 195.92004613235656
+        "x": 1623.658426419113,
+        "y": 835.1913391508141
       },
       "caption": "City",
       "labels": [
@@ -86,44 +97,40 @@
       }
     },
     {
-      "id": "n5",
+      "id": "n3",
       "position": {
-        "x": 24.050870145444378,
-        "y": -199.2948952186385
+        "x": 1787.3618151791825,
+        "y": 439.97639779981904
       },
       "caption": "PostCodes",
       "labels": [
-        "postcodeHash"
+        "postCode"
       ],
-      "properties": {
-        "postCode": ""
-      },
+      "properties": {},
       "style": {
         "node-color": "#fcdc00"
       }
     },
     {
-      "id": "n6",
+      "id": "n4",
       "position": {
-        "x": -534.8674599656202,
-        "y": -199.2948952186385
+        "x": 1228.4434850681178,
+        "y": 439.97639779981904
       },
       "caption": "Address",
       "labels": [
-        "addressHash"
+        "addressText"
       ],
-      "properties": {
-        "addressText": ""
-      },
+      "properties": {},
       "style": {
         "node-color": "#fcdc00"
       }
     },
     {
-      "id": "n7",
+      "id": "n5",
       "position": {
-        "x": -603.388442024508,
-        "y": -643.2712930184575
+        "x": 1159.9225030092302,
+        "y": -4
       },
       "caption": "Customer",
       "labels": [
@@ -137,10 +144,10 @@
       "style": {}
     },
     {
-      "id": "n8",
+      "id": "n6",
       "position": {
-        "x": -557.6328290288146,
-        "y": 862.9391343912096
+        "x": 1205.6781160049236,
+        "y": 1502.210427409667
       },
       "caption": "Supplier",
       "labels": [
@@ -154,10 +161,10 @@
       "style": {}
     },
     {
-      "id": "n9",
+      "id": "n7",
       "position": {
-        "x": -1047.3648398243272,
-        "y": -199.2948952186385
+        "x": 715.9461052094109,
+        "y": 439.97639779981904
       },
       "caption": "Order",
       "labels": [
@@ -171,10 +178,10 @@
       }
     },
     {
-      "id": "n10",
+      "id": "n8",
       "position": {
-        "x": -1634.310945033738,
-        "y": 387.6512099907722
+        "x": 129,
+        "y": 1026.9225030092298
       },
       "caption": "Product",
       "labels": [
@@ -190,10 +197,10 @@
       }
     },
     {
-      "id": "n11",
+      "id": "n9",
       "position": {
-        "x": -899.2177875172811,
-        "y": 291.3230979846003
+        "x": 864.093157516457,
+        "y": 930.5943910030578
       },
       "caption": "StaffMember",
       "labels": [
@@ -207,25 +214,23 @@
       }
     },
     {
-      "id": "n12",
+      "id": "n10",
       "position": {
-        "x": -1065.759688550101,
-        "y": -643.2712930184575
+        "x": 697.5512564836372,
+        "y": -4
       },
       "caption": "Recipients",
       "labels": [
-        "recipientHash"
+        "recipientName"
       ],
-      "properties": {
-        "recipientName": ""
-      },
+      "properties": {},
       "style": {}
     },
     {
-      "id": "n13",
+      "id": "n11",
       "position": {
-        "x": -1634.310945033738,
-        "y": 891.6015709497185
+        "x": 129,
+        "y": 1530.872863968176
       },
       "caption": "Category",
       "labels": [
@@ -243,32 +248,32 @@
   "relationships": [
     {
       "id": "n0",
-      "fromId": "n4",
-      "toId": "n3",
+      "fromId": "n2",
+      "toId": "n1",
       "type": "CITY_OF",
       "properties": {},
       "style": {}
     },
     {
-      "id": "n2",
-      "fromId": "n6",
-      "toId": "n5",
+      "id": "n1",
+      "fromId": "n4",
+      "toId": "n3",
       "type": "POSTAL_LOCATION",
       "properties": {},
       "style": {}
     },
     {
-      "id": "n3",
-      "fromId": "n6",
-      "toId": "n4",
+      "id": "n2",
+      "fromId": "n4",
+      "toId": "n2",
       "type": "PHYSICAL_LOCATION",
       "properties": {},
       "style": {}
     },
     {
-      "id": "n4",
-      "fromId": "n9",
-      "toId": "n6",
+      "id": "n3",
+      "fromId": "n7",
+      "toId": "n4",
       "type": "SHIPPED_LOCATION",
       "properties": {
         "shippedDate": "",
@@ -277,33 +282,33 @@
       "style": {}
     },
     {
-      "id": "n5",
-      "fromId": "n7",
-      "toId": "n6",
+      "id": "n4",
+      "fromId": "n5",
+      "toId": "n4",
       "type": "REGISTERED_TO",
       "properties": {},
       "style": {}
     },
     {
-      "id": "n6",
-      "fromId": "n7",
-      "toId": "n9",
+      "id": "n5",
+      "fromId": "n5",
+      "toId": "n7",
       "type": "PURCHASED",
       "properties": {},
       "style": {}
     },
     {
-      "id": "n7",
-      "fromId": "n8",
-      "toId": "n6",
+      "id": "n6",
+      "fromId": "n6",
+      "toId": "n4",
       "type": "REGISTERED_TO",
       "properties": {},
       "style": {}
     },
     {
-      "id": "n8",
-      "fromId": "n9",
-      "toId": "n10",
+      "id": "n7",
+      "fromId": "n7",
+      "toId": "n8",
       "type": "CONTAINS",
       "properties": {
         "quantity": "",
@@ -313,65 +318,65 @@
       "style": {}
     },
     {
-      "id": "n9",
-      "fromId": "n11",
-      "toId": "n6",
+      "id": "n8",
+      "fromId": "n9",
+      "toId": "n4",
       "type": "LIVES_AT",
       "properties": {},
       "style": {}
     },
     {
-      "id": "n10",
-      "fromId": "n9",
-      "toId": "n11",
+      "id": "n9",
+      "fromId": "n7",
+      "toId": "n9",
       "type": "PROCESSED_BY",
       "properties": {},
       "style": {}
     },
     {
-      "id": "n11",
-      "fromId": "n10",
-      "toId": "n8",
+      "id": "n10",
+      "fromId": "n8",
+      "toId": "n6",
       "type": "SUPPLIED_BY",
       "properties": {},
       "style": {}
     },
     {
-      "id": "n12",
-      "fromId": "n5",
-      "toId": "n3",
+      "id": "n11",
+      "fromId": "n3",
+      "toId": "n1",
       "type": "MAILING_IDENTIFIER",
       "properties": {},
       "style": {}
     },
     {
-      "id": "n13",
-      "fromId": "n9",
-      "toId": "n12",
+      "id": "n12",
+      "fromId": "n7",
+      "toId": "n10",
       "type": "SHIPPED_RECIPIENT",
       "properties": {},
       "style": {}
     },
     {
-      "id": "n14",
-      "fromId": "n12",
-      "toId": "n7",
+      "id": "n13",
+      "fromId": "n10",
+      "toId": "n5",
       "type": "RECIPIENT_IS_CUSTOMER",
       "properties": {},
       "style": {}
     },
     {
-      "id": "n15",
-      "fromId": "n10",
-      "toId": "n13",
+      "id": "n14",
+      "fromId": "n8",
+      "toId": "n11",
       "type": "CATEGORISED_AS",
       "properties": {},
       "style": {}
     },
     {
-      "id": "n16",
-      "fromId": "n11",
-      "toId": "n11",
+      "id": "n15",
+      "fromId": "n9",
+      "toId": "n9",
       "type": "MANAGED_BY",
       "properties": {},
       "style": {}

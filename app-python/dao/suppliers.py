@@ -9,7 +9,7 @@ class SupplierDAO:
             MERGE (m:Supplier { supplierId: $supplierId })
             MERGE (c:Country { countryName: $country})
             MERGE (ct:City { cityName: $city})
-            MERGE (a:Address { addressHash: $addressText})
+            MERGE (a:Address { addressText: $addressText})
             MERGE (ct)-[:CITY_OF]->(c)
             MERGE (a)-[:PHYSICAL_LOCATION]->(ct)     
             MERGE (m)-[:REGISTERED_TO]->(a)

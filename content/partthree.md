@@ -1,6 +1,6 @@
 ## Graph Enabled Ingestion (Python)
 
-An application has been developed showcasing the ability to send JSON to a Flask endpoint and write the results to the graph developed in [part two](/content/parttwo.md) (specifically datamodel_02.png).
+An application has been developed showcasing the ability to send JSON to a Flask endpoint and write the results to the graph developed in [part two](/content/parttwo.md).
 Required dependencies:
 - Python 3.9.x
 - neo4j Enterprise 4.4.x

@@ -7,10 +7,10 @@ class OrderDAO:
             query = """
             MERGE (o:Order { orderId: $orderId })
             MERGE (c:Customer { customerId: $customerId })
-            MERGE (r:Recipients { recipientHash: $shippingName})
+            MERGE (r:Recipients { recipientName: $shippingName})
             MERGE (cn:Country { countryName: $shippingCountry})
             MERGE (ct:City { cityName: $shippingCity})
-            MERGE (a:Address { addressHash: $shippingAddress})
+            MERGE (a:Address { addressText: $shippingAddress})
             MERGE (p:Product { productId: $productId})
             MERGE (c)-[:PURCHASED]->(o)
             MERGE (o)-[sl:SHIPPED_LOCATION]->(a)
@@ -18,8 +18,7 @@ class OrderDAO:
             MERGE (ct)-[:CITY_OF]->(cn)
             MERGE (a)-[:PHYSICAL_LOCATION]->(ct)
             MERGE (o)-[cont:CONTAINS]->(p)
-            SET r.recipientName = $shippingName, o.totalValue = $totalValue, cont.quantity = $quantity, 
-            cont.discount = $discount, cont.unitPrice = $unitPrice;"""
+            SET o.totalValue = $totalValue, cont.quantity = $quantity, cont.discount = $discount, cont.unitPrice = $unitPrice;"""
             tx.run(query, orderId=order["orderId"], customerId=order["customerId"], \
                 shippingName=order["shippingName"], shippingCountry=order["shippingCountry"], \
                     shippingCity=order["shippingCity"], shippingAddress=order["shippingAddressText"], \

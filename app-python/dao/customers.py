@@ -7,11 +7,11 @@ class CustomerDAO:
             query = """MERGE (m:Customer { customerId: $customerId })
             MERGE (c:Country { countryName: $country})
             MERGE (ct:City { cityName: $city})
-            MERGE (a:Address { addressHash: $addressText})
+            MERGE (a:Address { addressText: $addressText})
             MERGE (ct)-[:CITY_OF]->(c)
             MERGE (a)-[:PHYSICAL_LOCATION]->(ct)     
             MERGE (m)-[:REGISTERED_TO]->(a)
-            SET m.customerName = $customerName, m.contactName = $contactName, m.contactRole = $contactTitle, a.addressText = $addressText;"""
+            SET m.customerName = $customerName, m.contactName = $contactName, m.contactRole = $contactTitle;"""
 
             tx.run(query, customerId=customer["customerId"], country=customer["country"], city=customer["city"], addressText=customer["addressText"], customerName=customer["customerName"], contactName=customer["contactName"], contactTitle=customer["contactTitle"]).consume()
             
