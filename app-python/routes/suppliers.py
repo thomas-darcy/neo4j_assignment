@@ -9,6 +9,9 @@ schema = {
     {
       "type": "object",
       "properties": {
+        "supplierId": {
+          "type": "string"
+        },
         "companyName": {
           "type": "string"
         },
@@ -35,6 +38,7 @@ schema = {
         }
       },
       "required": [
+        "supplierId",
         "companyName",
         "contactName",
         "contactRole",
