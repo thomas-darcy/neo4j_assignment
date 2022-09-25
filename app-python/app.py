@@ -40,14 +40,6 @@ def create_app(test_config=None):
     app.register_blueprint(customers_routes)
     app.register_blueprint(suppliers_routes)
 
-    @app.errorhandler(BadRequestException)
-    def handle_bad_request(err):
-        return {"message": str(err)}, 400
-
-    @app.errorhandler(NotFoundException)
-    def handle_not_found_exception(err):
-        return {"message": str(err)}, 404
-
     return app
 
 

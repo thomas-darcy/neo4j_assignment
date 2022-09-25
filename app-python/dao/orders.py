@@ -1,6 +1,3 @@
-from exceptions.notfound import NotFoundException
-
-
 class OrderDAO:
     def __init__(self, driver):
         self.driver = driver

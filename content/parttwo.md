@@ -31,7 +31,7 @@ RETURN count(*);
 
 5. Create the schema using the generated Cypher [Cypher Create Model](/cypher/cypher_createmodel.txt)
 
-6. Run the Cypher queries to create the nodes and relationships off the CSVs [Cypher Create Model](/cypher/importcsv.txt)
+6. Run the Cypher queries to create the nodes and relationships off the CSVs [Cypher Import CSV](/cypher/importcsv.txt)
 
 
 ### Cypher Queries
