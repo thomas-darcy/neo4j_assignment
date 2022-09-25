@@ -14,7 +14,6 @@ Required dependencies:
 ### Methods
 
 #### Create Order
-<summary>
 ```POST api/orders/create```
 
 ###### Example Payload
@@ -59,7 +58,6 @@ Required dependencies:
     "recordsSynced": The number of records synced
 }
 ```
-</summary>
 #### Create Customer
 
 ```POST api/customers/create```
