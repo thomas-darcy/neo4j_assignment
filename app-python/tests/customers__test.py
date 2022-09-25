@@ -46,7 +46,7 @@ def before_all(app):
             """))
 
 
-def test_return_positive_flag_on_all(app):
+def test_create_customers(app):
     with app.app_context():
         driver = get_driver()
 
