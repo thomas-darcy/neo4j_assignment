@@ -15,7 +15,7 @@ As a part of the modelling process the following use cases were designed
 
 ### Data model
 The json file as exported from arrows.app is located [Data Model JSON](/NorthWind%20Retail%20DataSet.json)[^4]
-![Data Model](/assets/datamodel_03.png)
+![Data Model](/assets/datamodel_04.png)
 
 
 Historical data model's can be viewed in the assets directory, prefixed with ```data_model```
