@@ -54,17 +54,6 @@
   },
   "nodes": [
     {
-      "id": "n0",
-      "position": {
-        "x": 0,
-        "y": 0
-      },
-      "caption": "",
-      "labels": [],
-      "properties": {},
-      "style": {}
-    },
-    {
       "id": "n1",
       "position": {
         "x": 2084.9089400781168,
