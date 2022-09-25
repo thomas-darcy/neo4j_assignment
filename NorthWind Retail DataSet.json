@@ -65,7 +65,8 @@
       ],
       "properties": {},
       "style": {
-        "node-color": "#fcdc00"
+        "node-color": "#fcdc00",
+        "border-color": "#ffffff"
       }
     },
     {
@@ -82,7 +83,8 @@
         "region": ""
       },
       "style": {
-        "node-color": "#fcdc00"
+        "node-color": "#fcdc00",
+        "border-color": "#ffffff"
       }
     },
     {
@@ -97,7 +99,8 @@
       ],
       "properties": {},
       "style": {
-        "node-color": "#fcdc00"
+        "node-color": "#fcdc00",
+        "border-color": "#ffffff"
       }
     },
     {
@@ -112,7 +115,8 @@
       ],
       "properties": {},
       "style": {
-        "node-color": "#fcdc00"
+        "node-color": "#fcdc00",
+        "border-color": "#ffffff"
       }
     },
     {
@@ -130,7 +134,10 @@
         "contactName": "",
         "contactRole": ""
       },
-      "style": {}
+      "style": {
+        "node-color": "#009ce0",
+        "border-color": "#ffffff"
+      }
     },
     {
       "id": "n6",
@@ -147,7 +154,10 @@
         "contactName": "",
         "contactRole": ""
       },
-      "style": {}
+      "style": {
+        "node-color": "#009ce0",
+        "border-color": "#ffffff"
+      }
     },
     {
       "id": "n7",
@@ -163,7 +173,8 @@
         "totalValue": ""
       },
       "style": {
-        "node-color": "#fe9200"
+        "node-color": "#fe9200",
+        "border-color": "#ffffff"
       }
     },
     {
@@ -182,7 +193,8 @@
         "unitPrice": ""
       },
       "style": {
-        "node-color": "#a4dd00"
+        "node-color": "#a4dd00",
+        "border-color": "#ffffff"
       }
     },
     {
@@ -199,7 +211,9 @@
         "name": ""
       },
       "style": {
-        "property-position": "outside"
+        "property-position": "outside",
+        "node-color": "#009ce0",
+        "border-color": "#ffffff"
       }
     },
     {
@@ -213,7 +227,10 @@
         "recipientName"
       ],
       "properties": {},
-      "style": {}
+      "style": {
+        "node-color": "#009ce0",
+        "border-color": "#ffffff"
+      }
     },
     {
       "id": "n11",
@@ -230,7 +247,8 @@
         "categoryDescription": ""
       },
       "style": {
-        "node-color": "#194d33"
+        "node-color": "#194d33",
+        "border-color": "#ffffff"
       }
     }
   ],
