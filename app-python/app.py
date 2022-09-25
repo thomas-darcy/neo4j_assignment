@@ -2,9 +2,6 @@ import os
 
 from flask import Flask
 
-from exceptions.notfound import NotFoundException
-from exceptions.badrequest import BadRequestException
-
 from neo4jdriver import init_driver
 
 from routes.orders import orders_routes

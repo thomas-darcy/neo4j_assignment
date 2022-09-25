@@ -9,6 +9,19 @@ Required dependencies:
 
 1. Navigate to the app-python directory
 2. Execute the command 
+```pip install -r requirements.txt```
+3. Make a copy of ```.env.example``` and rename to ```.env```
+4. Update the configuration values in the new environment file
+
+| Name      | Description |
+| ----------- | ----------- |
+| FLASK_APP | The entry point for application. Only change if you know what you're doing |
+| FLASK_ENV | The environment the application is running in (production/development) |
+| FLASK_RUN_PORT | The port the application will be listening on |
+| NEO4J_URI | The connection URI for the neo4j driver |
+| NEO4J_USERNAME | Username for the neo4j connection |
+| NEO4J_PASSWORD | Password for the neo4j connection |
+5. Execute the command 
 ```flask run```
 
 ### Methods
