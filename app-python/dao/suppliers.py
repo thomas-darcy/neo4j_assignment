@@ -10,7 +10,7 @@ class SupplierDAO:
             MERGE (c:Country { countryName: {country}})
             MERGE (ct:City { cityName: {city}})
             MERGE (a:Address { addressHash: apoc.util.sha512([{address}])})"""
-            if supplier["postCode"] != None and len(supplier["postCode"]) > 0:
+            if 'postCode' in supplier and supplier["postCode"] != None and len(supplier["postCode"]) > 0:
                 query = query + """ MERGE (pc:PostCodes { postcodeHash: apoc.util.sha512([{postcode}])})
                                     MERGE (a)-[:POSTAL_LOCATION]->(pc)
                                     MERGE (PC)-[:MAILING_IDENTIFIER]->(cn)
@@ -20,9 +20,9 @@ class SupplierDAO:
             MERGE (a)-[:PHYSICAL_LOCATION]->(ct)     
             MERGE (m)-[:REGISTERED_TO]->(a)
             SET m.customerName = {customerName}, m.contactName = {contactName}, m.contactRole = {contactTitle}, a.addressText = {address}"""
-            if supplier["postCode"] != None and len(supplier["postCode"]) > 0:
+            if 'postCode' in supplier and supplier["postCode"] != None and len(supplier["postCode"]) > 0:
                 query = query + """ , pc.postCode = {postCode} """
-            if supplier["region"] != None and len(supplier["region"]) > 0:
+            if 'region' in supplier and supplier["region"] != None and len(supplier["region"]) > 0:
                 query = query + """ , ct.region = {region} """
             query = query + """;"""
             query = query.format(supplierId=supplier["supplierId"], country=supplier["country"], city=supplier["city"], address=supplier["address"], postCode=supplier["postCode"], customerName=supplier["customerName"], contactName=supplier["contactName"], contactTitle=supplier["contactTitle"])
@@ -31,9 +31,9 @@ class SupplierDAO:
 
             return 1
 
-        suppliers = 0
+        count = 0
         with self.driver.session() as session:
             for supplier in suppliers:  
-                suppliers += session.run(writeSupplier, supplier)    
+                count += session.write_transaction(writeSupplier, supplier)    
 
-        return suppliers
+        return count

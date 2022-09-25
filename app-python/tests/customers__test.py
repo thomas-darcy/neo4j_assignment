@@ -1,13 +1,15 @@
 import pytest
-from neo4j import get_driver
+from jsonschema import validate
+from jsonschema.exceptions import ValidationError
+from neo4jdriver import get_driver
 from dao.customers import CustomerDAO
 
 testdata = [
    {
       "customerId":"1",
-      "companyName":"Test Company 1",
+      "customerName":"Test Company 1",
       "contactName":"Michelle Test",
-      "contactRole":"Marketing Manager",
+      "contactTitle":"Marketing Manager",
       "addressText":"1 Test Road",
       "city":"Sydney",
       "postCode":"2000",
@@ -15,9 +17,9 @@ testdata = [
    },
    {
       "customerId":"2",
-      "companyName":"Test Company 2",
+      "customerName":"Test Company 2",
       "contactName":"Richard Test",
-      "contactRole":"Owner",
+      "contactTitle":"Owner",
       "addressText":"356 Test Street",
       "city":"Boston",
       "region":"MA",
@@ -25,9 +27,9 @@ testdata = [
    },
    {
       "customerId":"3",
-      "companyName":"Test Company 3",
+      "customerName":"Test Company 3",
       "contactName":"John Test",
-      "contactRole":"Purchasing Manager",
+      "contactTitle":"Purchasing Manager",
       "addressText":"Test Prominade",
       "city":"London",
       "country":"UK"

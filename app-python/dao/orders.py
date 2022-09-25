@@ -15,7 +15,7 @@ class OrderDAO:
             MERGE (ct:City { cityName: {shippingCity}})
             MERGE (a:Address { addressHash: apoc.util.sha512([{shippingAddress}])})
             """
-            if order["postCode"] != None and len(order["postCode"]) > 0:
+            if 'postCode' in order and order["postCode"] != None and len(order["postCode"]) > 0:
                 query = query + """ MERGE (pc:PostCodes { postcodeHash: apoc.util.sha512([{shippingPostcode}])})
                                     MERGE (a)-[:POSTAL_LOCATION]->(pc)
                                     MERGE (PC)-[:MAILING_IDENTIFIER]->(cn)
@@ -27,7 +27,7 @@ class OrderDAO:
             MERGE (ct)-[:CITY_OF]->(cn)
             MERGE (a)-[:PHYSICAL_LOCATION]->(ct)
             SET r.recipientName = {shippingName}"""
-            if order["postCode"] != None and len(order["postCode"]) > 0:
+            if 'postCode' in order and order["postCode"] != None and len(order["postCode"]) > 0:
                 query = query + """ , pc.postCode = {shippingPostcode} """
             query = query + """;"""
 
@@ -37,9 +37,9 @@ class OrderDAO:
 
             return 1
 
-        orders = 0
+        count = 0
         with self.driver.session() as session:
             for order in orders:  
-                orders += session.write_transaction(writeOrder, order)    
+                count += session.write_transaction(writeOrder, order)    
 
-        return orders
+        return count

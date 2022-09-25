@@ -86,8 +86,8 @@ def create_order():
     # Get the request payload
     request_json = request.get_json()
 
-    # Validate the input data against the schema
-    validate(request_json, schema)
+    # # Validate the input data against the schema
+    # validate(request_json, schema)
 
     # Create the DAO
     dao = OrderDAO(current_app.driver)

@@ -1,5 +1,5 @@
 import pytest
-from neo4j import get_driver
+from neo4jdriver import get_driver
 from dao.suppliers import SupplierDAO
 
 testdata = [

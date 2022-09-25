@@ -5,14 +5,13 @@ from flask import Flask
 from exceptions.notfound import NotFoundException
 from exceptions.badrequest import BadRequestException
 
-from neo4j import init_driver
+from neo4jdriver import init_driver
 
 from routes.orders import orders_routes
 from routes.suppliers import suppliers_routes
 from routes.customers import customers_routes
 
 def create_app(test_config=None):
-    # Create and configure app
     app = Flask(__name__)
 
     app.config.from_mapping(
@@ -22,11 +21,9 @@ def create_app(test_config=None):
         NEO4J_DATABASE=os.getenv('NEO4J_DATABASE'),
     )
 
-    # Apply Test Config
     if test_config is not None:
         app.config.update(test_config)
 
-    # ensure the instance folder exists
     try:
         os.makedirs(app.instance_path)
     except OSError:
@@ -39,7 +36,6 @@ def create_app(test_config=None):
             app.config.get('NEO4J_PASSWORD'),
         )
 
-    # Register Routes
     app.register_blueprint(orders_routes)
     app.register_blueprint(customers_routes)
     app.register_blueprint(suppliers_routes)

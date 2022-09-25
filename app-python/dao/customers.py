@@ -4,35 +4,22 @@ class CustomerDAO:
 
     def create_customers(self, customers):
         def writeCustomer(tx, customer):
-            query = """
-            MERGE (m:Customer { customerId: {customerId} })
-            MERGE (c:Country { countryName: {country}})
-            MERGE (ct:City { cityName: {city}})
-            MERGE (a:Address { addressHash: apoc.util.sha512([{address}])})"""
-            if customer["postCode"] != None and len(customer["postCode"]) > 0:
-                query = query + """ MERGE (pc:PostCodes { postcodeHash: apoc.util.sha512([{postcode}])})
-                                    MERGE (a)-[:POSTAL_LOCATION]->(pc)
-                                    MERGE (PC)-[:MAILING_IDENTIFIER]->(cn)
-            """
-            query = query + """ 
+            query = """MERGE (m:Customer { customerId: $customerId })
+            MERGE (c:Country { countryName: $country})
+            MERGE (ct:City { cityName: $city})
+            MERGE (a:Address { addressHash: $addressText})
             MERGE (ct)-[:CITY_OF]->(c)
             MERGE (a)-[:PHYSICAL_LOCATION]->(ct)     
             MERGE (m)-[:REGISTERED_TO]->(a)
-            SET m.customerName = {customerName}, m.contactName = {contactName}, m.contactRole = {contactTitle}, a.addressText = {address}"""
-            if customer["postCode"] != None and len(customer["postCode"]) > 0:
-                query = query + """ , pc.postCode = {postCode} """
-            if customer["region"] != None and len(customer["region"]) > 0:
-                query = query + """ , ct.region = {region} """
-            query = query + """;"""
-            query = query.format(customerId=customer["customerId"], country=customer["country"], city=customer["city"], address=customer["address"], postCode=customer["postCode"], customerName=customer["customerName"], contactName=customer["contactName"], contactTitle=customer["contactTitle"])
+            SET m.customerName = $customerName, m.contactName = $contactName, m.contactRole = $contactTitle, a.addressText = $addressText;"""
 
-            tx.run(query)
-
+            tx.run(query, customerId=customer["customerId"], country=customer["country"], city=customer["city"], addressText=customer["addressText"], customerName=customer["customerName"], contactName=customer["contactName"], contactTitle=customer["contactTitle"]).consume()
+            
             return 1
 
-        customers = 0
+        count = 0
         with self.driver.session() as session:
             for customer in customers:  
-                customers += session.run(writeCustomer, customer)    
+                count += session.write_transaction(writeCustomer, customer)    
 
-        return customers
+        return count
