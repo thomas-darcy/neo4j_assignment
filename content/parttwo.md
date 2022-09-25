@@ -1,8 +1,7 @@
 ## Modelling Dataset
 ### Background
 This application is based on the **Retail North Wind Data**
-
-![located](https://gist.github.com/maruthiprithivi/072b526e20fe16a29f98db07f569861d)
+[Located](https://gist.github.com/maruthiprithivi/072b526e20fe16a29f98db07f569861d)
 
 ### Use Cases
 As a part of the modelling process the following use cases were designed
