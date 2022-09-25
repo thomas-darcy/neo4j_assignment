@@ -5,9 +5,9 @@ from dao.suppliers import SupplierDAO
 testdata = [
    {
       "supplierId":"1",
-      "companyName":"Test Company 1",
+      "supplierName":"Test Company 1",
       "contactName":"Michelle Test",
-      "contactRole":"Marketing Manager",
+      "contactTitle":"Marketing Manager",
       "addressText":"1 Test Road",
       "city":"Sydney",
       "postCode":"2000",
@@ -15,9 +15,9 @@ testdata = [
    },
    {
       "supplierId":"2",
-      "companyName":"Test Company 2",
+      "supplierName":"Test Company 2",
       "contactName":"Richard Test",
-      "contactRole":"Owner",
+      "contactTitle":"Owner",
       "addressText":"356 Test Street",
       "city":"Boston",
       "region":"MA",
@@ -25,9 +25,9 @@ testdata = [
    },
    {
       "supplierId":"3",
-      "companyName":"Test Company 3",
+      "supplierName":"Test Company 3",
       "contactName":"John Test",
-      "contactRole":"Purchasing Manager",
+      "contactTitle":"Purchasing Manager",
       "addressText":"Test Prominade",
       "city":"London",
       "country":"UK"

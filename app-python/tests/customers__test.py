@@ -1,6 +1,4 @@
 import pytest
-from jsonschema import validate
-from jsonschema.exceptions import ValidationError
 from neo4jdriver import get_driver
 from dao.customers import CustomerDAO
 

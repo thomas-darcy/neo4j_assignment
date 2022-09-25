@@ -11,14 +11,12 @@ testdata = [
       "shippingAddressText":"Test Address 1",
       "shippingCity":"Sydney",
       "shippingCountry":"Australia",
-      "products":[
-         {
+      "product":  {
             "productId":"1",
             "quantity":1,
             "discount":0.0,
             "unitPrice":16.0
-         }
-      ]
+      }
    },
    {
       "orderId":"2",
@@ -28,20 +26,12 @@ testdata = [
       "shippingAddressText":"Test Address 1",
       "shippingCity":"Sydney",
       "shippingCountry":"Australia",
-      "products":[
-         {
-            "productId":"5",
+      "product":  {
+            "productId":"3",
             "quantity":100,
             "discount":0.0,
-            "unitPrice":30.50
-         },
-         {
-            "productId":"4",
-            "quantity":100,
-            "discount":0.0,
-            "unitPrice":7.0
-         }
-      ]
+            "unitPrice":375.0
+      }
    }
 ]
 

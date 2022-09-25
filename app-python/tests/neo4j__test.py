@@ -1,6 +1,8 @@
 import os
 from neo4jdriver import close_driver, get_driver
 
+# From GraphAcademy Python course, example project (GraphAcademy\app-python\tests\01_connect_to_neo4j__test.py)
+
 def test_env_vars():
     """Test that environment variables have been set"""
 
