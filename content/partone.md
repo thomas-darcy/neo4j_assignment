@@ -50,7 +50,7 @@ neo4j status
 13. You should now be connected via the neo4j Browser
 ![Connected](/assets/connected.png)
 
-[Readme.md](/readme.md)
+[README.md](/README.md)
 
 [^1]: https://neo4j.com/docs/operations-manual/current/installation/linux/debian/#multiple-java-versions
 [^2]: If the error ```E: dpkg was interrupted, you must manually run 'sudo dpkg --configure -a' to correct the problem.``` appears, run the command as instructed, and re-run the install command

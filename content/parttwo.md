@@ -52,7 +52,7 @@ RETURN c, p, o
 ##### Others of interest
 - Identifying Customers that have Suppliers with the same product categories that might be in the same city for possible nurturing
 
-[Readme.md](/readme.md)
+[README.md](/README.md)
 
 [^4]: Maybe look at restructuring the directory
 [^5]: Also specified when starting the neo4j service
