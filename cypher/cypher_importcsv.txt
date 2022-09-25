@@ -18,7 +18,13 @@ SET p.productName =  row.productName, p.quantityPerUnit = row.quantityPerUnit, p
 LOAD CSV WITH HEADERS FROM "file:///northwind-employees.csv" AS row 
 MERGE (e:staffMember { employeeId: row.employeeID })
 MERGE (m:staffMember { employeeId: row.reportsTo })
-MERGE (e)-[:MANAGED_BY]->(m);
+MERGE (c:Country { countryName: row.country})
+MERGE (ct:City { cityName: row.city})
+MERGE (a:Address { addressHash: row.address})
+MERGE (e)-[:MANAGED_BY]->(m)
+MERGE (e)-[:LIVES_AT]->(a)
+MERGE (ct)-[:CITY_OF]->(c)
+MERGE (a)-[:PHYSICAL_LOCATION]->(ct);
 
 -- Process file northwind-suppliers
 LOAD CSV WITH HEADERS FROM "file:///northwind-suppliers.csv" AS row 

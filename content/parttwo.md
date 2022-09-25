@@ -56,6 +56,25 @@ RETURN c.customerId AS UniqueCustomers, COUNT(DISTINCT ct.cityName) AS UniqueCit
 ```
 ##### Use Case - Anomalies in shipping with recipients outside of normal
 ##### Use Case - Re-targetting workforce to cities with more Customers/Suppliers
+![Cypher result](/assets/cypher_result_05.png)
+
+```
+MATCH (s:staffMember)-[:LIVES_AT]->(a:Address), (a)-[:PHYSICAL_LOCATION]->(c:City)
+RETURN s, a, c
+UNION
+MATCH (s:Customer)-[:REGISTERED_TO]->(a:Address), (a)-[:PHYSICAL_LOCATION]->(c:City)
+RETURN s, a, c
+```
+On first look with just the City it looks like something could be there, adding in the country however doesn't improve the view.
+![Cypher result](/assets/cypher_result_04.png)
+
+```
+MATCH (s:staffMember)-[:LIVES_AT]->(a:Address), (a)-[:PHYSICAL_LOCATION]->(c:City), (c)-[:CITY_OF]->(n:Country)
+RETURN s, a, c, n
+UNION
+MATCH (s:Customer)-[:REGISTERED_TO]->(a:Address), (a)-[:PHYSICAL_LOCATION]->(c:City), (c)-[:CITY_OF]->(n:Country)
+RETURN s, a, c, n
+```
 ##### Identifying Customers that have Suppliers with the same product categories that might be in the same city for possible nurturing 
 ![Cypher result](/assets/cypher_result_03.png)
 
