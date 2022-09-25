@@ -55,6 +55,18 @@ WHERE oa.addressHash <> ca.addressHash
 RETURN c.customerId AS UniqueCustomers, COUNT(DISTINCT ct.cityName) AS UniqueCities
 ```
 ##### Use Case - Anomalies in shipping with recipients outside of normal
+![Cypher result](/assets/cypher_result_06.png)
+
+```
+MATCH (c:Customer)-[p:PURCHASED]-(o:Order), (o)-[sl:SHIPPED_LOCATION]->(oa:Address)
+RETURN c.customerId, COUNT(DISTINCT oa.addressHash) AS UniqueShippingLocations
+ORDER BY UniqueShippingLocations DESC
+
+MATCH (c:Customer)-[p:PURCHASED]-(o:Order), (o)-[sl:SHIPPED_LOCATION]->(a:Address),(a)-[:PHYSICAL_LOCATION]->(ct:City), (ct)-[:CITY_OF]->(cn:Country)
+WHERE c.customerId IN ['BLONP','BONAP']
+RETURN c, a, ct, cn
+```
+These two duplicated shipping locations are in fact issues with the data set that was impored at that point in time; didn't warrant a further look after rectifying the issue
 ##### Use Case - Re-targetting workforce to cities with more Customers/Suppliers
 ![Cypher result](/assets/cypher_result_05.png)
 
@@ -65,7 +77,7 @@ UNION
 MATCH (s:Customer)-[:REGISTERED_TO]->(a:Address), (a)-[:PHYSICAL_LOCATION]->(c:City)
 RETURN s, a, c
 ```
-On first look with just the City it looks like something could be there, adding in the country however doesn't improve the view.
+On first look with just the City it looks like something could be there, adding in the country however doesn't improve the graph
 ![Cypher result](/assets/cypher_result_04.png)
 
 ```
@@ -86,7 +98,7 @@ MATCH (c:Customer)-[:REGISTERED_TO]->(ca:Address), (ca)-[:PHYSICAL_LOCATION]->(c
 WHERE cact.cityName = sact.cityName or oact.cityName = sact.cityName
 RETURN c.customerName, s.supplierName
 ```
-There might either be an opportunity to go back and review the import data to ensure it's clean
+Should go back and review the import data to ensure it's clean
 
 
 

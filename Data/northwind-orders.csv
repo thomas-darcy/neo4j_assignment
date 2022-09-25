@@ -48,7 +48,7 @@ orderID,customerID,employeeID,orderDate,requiredDate,shippedDate,shipVia,freight
 10294,RATTC,4,00:00.0,00:00.0,00:00.0,2,147.26,Rattlesnake Canyon Grocery,2817 Milton Dr.,Albuquerque,NM,87110,USA
 10295,VINET,2,00:00.0,00:00.0,00:00.0,2,1.15,Vins et alcools Chevalier,59 rue de l'Abbaye,Reims,NULL,51100,France
 10296,LILAS,6,00:00.0,00:00.0,00:00.0,1,0.12,LILA-Supermercado,Carrera 52 con Ave. Bolívar #65-98 Llano Largo,Barquisimeto,Lara,3508,Venezuela
-10297,BLONP,5,00:00.0,00:00.0,00:00.0,2,5.74,Blondel père et fils,24  place Kléber,Strasbourg,NULL,67000,France
+10297,BLONP,5,00:00.0,00:00.0,00:00.0,2,5.74,Blondel père et fils,24 place Kléber,Strasbourg,NULL,67000,France
 10298,HUNGO,6,00:00.0,00:00.0,00:00.0,2,168.22,Hungry Owl All-Night Grocers,8 Johnstown Road,Cork,Co. Cork,NULL,Ireland
 10299,RICAR,4,00:00.0,00:00.0,00:00.0,2,29.76,Ricardo Adocicados,Av. Copacabana 267,Rio de Janeiro,RJ,02389-890,Brazil
 10300,MAGAA,2,00:00.0,00:00.0,00:00.0,2,17.68,Magazzini Alimentari Riuniti,Via Ludovico il Moro 22,Bergamo,NULL,24100,Italy
@@ -827,5 +827,5 @@ orderID,customerID,employeeID,orderDate,requiredDate,shippedDate,shipVia,freight
 11073,PERIC,2,00:00.0,00:00.0,NULL,2,24.95,Pericles Comidas clásicas,Calle Dr. Jorge Cash 321,México D.F.,NULL,5033,Mexico
 11074,SIMOB,7,00:00.0,00:00.0,NULL,2,18.44,Simons bistro,Vinbæltet 34,Kobenhavn,NULL,1734,Denmark
 11075,RICSU,8,00:00.0,00:00.0,NULL,2,6.19,Richter Supermarkt,Starenweg 5,Genève,NULL,1204,Switzerland
-11076,BONAP,4,00:00.0,00:00.0,NULL,2,38.28,Bon app',12  rue des Bouchers,Marseille,NULL,13008,France
+11076,BONAP,4,00:00.0,00:00.0,NULL,2,38.28,Bon app',12 rue des Bouchers,Marseille,NULL,13008,France
 11077,RATTC,1,00:00.0,00:00.0,NULL,2,8.53,Rattlesnake Canyon Grocery,2817 Milton Dr.,Albuquerque,NM,87110,USA
