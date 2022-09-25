@@ -28,10 +28,10 @@ schema = {
           "type": "string"
         },
         "shippingRegion": {
-          "type": "string"
+          "type": ["string", "null"]
         },
         "shippingPostCode": {
-          "type": "string"
+          "type": ["string", "null"]
         },
         "shippingCountry": {
           "type": "string"
@@ -82,21 +82,18 @@ schema = {
 }
 
 @orders_routes.route('/create', methods=['POST'])
-def create_order(movie_id):
+def create_order():
     # Get the request payload
-    form_data = request.get_json()
+    request_json = request.get_json()
 
     # Validate the input data against the schema
-    validate(form_data, schema)
-
-    # get the payload we want
-    rating = int(form_data["rating"])
+    validate(request_json, schema)
 
     # Create the DAO
     dao = OrderDAO(current_app.driver)
 
     # Save the rating
-    output = dao.add(movie_id, rating)
+    output = dao.create_orders(request_json)
 
     # Return the output
     return jsonify(output)
